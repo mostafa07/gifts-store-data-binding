@@ -1,4 +1,4 @@
-package com.example.tabiangifts.util;
+package com.example.tabiangifts.data;
 
 import com.example.tabiangifts.models.Product;
 
@@ -10,9 +10,9 @@ public class Prices {
     private static final HashMap<String, BigDecimal> PRICES;
 
     static {
-        PRICES = new HashMap<String, BigDecimal>();
+        PRICES = new HashMap<>();
         Products products = new Products();
-        for (Product product: products.PRODUCTS) {
+        for (Product product : products.PRODUCTS) {
             PRICES.put(String.valueOf(product.getSerialNumber()), product.getPrice());
         }
     }

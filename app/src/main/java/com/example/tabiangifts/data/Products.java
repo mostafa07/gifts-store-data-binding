@@ -1,4 +1,4 @@
-package com.example.tabiangifts.util;
+package com.example.tabiangifts.data;
 
 import com.example.tabiangifts.R;
 import com.example.tabiangifts.models.Product;
