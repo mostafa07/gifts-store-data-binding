@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 public class Product implements Parcelable {
 
-    private static final String TAG = "Product";
+    private static final String TAG = Product.class.getSimpleName();
 
     private String title;
     private String description;
@@ -84,6 +84,7 @@ public class Product implements Parcelable {
     public static String getTAG() {
         return TAG;
     }
+
 
     public int getSerialNumber() {
         return serialNumber;

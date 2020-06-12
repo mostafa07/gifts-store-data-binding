@@ -14,9 +14,8 @@ import com.example.tabiangifts.data.Products;
 
 public class ViewProductFragment extends Fragment {
 
-    private static final String TAG = "ViewProductFragment";
+    private static final String LOG_TAG = ViewProductFragment.class.getSimpleName();
 
-    // Data binding
     FragmentViewProductBinding mBinding;
 
     @Nullable

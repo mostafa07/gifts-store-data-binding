@@ -10,9 +10,7 @@ public class BigDecimalUtil {
         return String.valueOf(df.format(value));
     }
 
-    /*
-        For rating bar (actual rating)
-     */
+    // For rating bar (actual rating)
     public static float getFloat(BigDecimal value) {
         return value.floatValue();
     }
