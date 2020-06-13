@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.tabiangifts.R;
 import com.example.tabiangifts.databinding.ActivityMainBinding;
-import com.example.tabiangifts.ui.fragments.ViewProductFragment;
+import com.example.tabiangifts.ui.fragments.MainFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initFragment() {
-        ViewProductFragment viewProductFragment = new ViewProductFragment();
+        MainFragment mainFragment = new MainFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, viewProductFragment);
+        fragmentTransaction.replace(R.id.fragment_container, mainFragment);
         fragmentTransaction.commit();
     }
 }

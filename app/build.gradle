@@ -40,6 +40,9 @@ dependencies {
     //recyclerview
     implementation "androidx.recyclerview:recyclerview:1.1.0"
 
+    //swipe refresh layout
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+
     //design library for Coordinator Layout, Toolbars, Tabs, Navigation Bars, Floating Action Buttons..etc..
     implementation 'com.google.android.material:material:1.1.0'
 
