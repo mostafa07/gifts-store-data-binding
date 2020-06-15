@@ -11,12 +11,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="product"
-            type="com.example.tabiangifts.models.Product" />
-
-        <variable
-            name="qty"
-            type="int" />
+            name="productObservable"
+            type="com.example.tabiangifts.databinding.ProductObservable" />
     </data>
 
     <RelativeLayout
@@ -24,13 +20,21 @@
         android:layout_height="match_parent"
         android:background="@color/White">
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:visibility="@{productObservable.imageVisibility ? View.GONE : View.VISIBLE}" />
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/container_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/White"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:visibility="@{productObservable.imageVisibility ? View.VISIBLE : View.INVISIBLE}">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -46,7 +50,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:text="@{product.getNumberRatingsString()}"
+                    android:text="@{productObservable.product.getNumberRatingsString()}"
                     android:textColor="@color/DarkGrey"
                     android:textSize="12sp" />
 
@@ -62,7 +66,7 @@
                     android:layout_toLeftOf="@id/num_ratings"
                     android:isIndicator="true"
                     android:numStars="5"
-                    android:rating="@{product.rating.floatValue()}"
+                    android:rating="@{productObservable.product.rating.floatValue()}"
                     android:scaleX="1.2"
                     android:scaleY="1.2"
                     android:theme="@style/RatingBar" />
@@ -74,7 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@{product.title}"
+                android:text="@{productObservable.product.title}"
                 android:textColor="@color/Black"
                 android:textSize="14sp" />
 
@@ -90,7 +94,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:scaleType="fitCenter"
-                    app:imageSource="@{product.image}" />
+                    app:imageResource="@{productObservable.product.image}"
+                    app:requestListener="@{productObservable.customRequestListener}" />
 
             </RelativeLayout>
 
@@ -109,7 +114,7 @@
                     android:id="@+id/price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{product.hasSalePrice() ? BigDecimalUtil.getValue(product.salePrice) : BigDecimalUtil.getValue(product.price)}"
+                    android:text="@{productObservable.product.hasSalePrice() ? BigDecimalUtil.getValue(productObservable.product.salePrice) : BigDecimalUtil.getValue(productObservable.product.price)}"
                     android:textColor="@color/red2"
                     android:textSize="16sp" />
 
@@ -120,10 +125,10 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:background="@drawable/strike_through"
-                    android:text="@{BigDecimalUtil.getValue(product.price)}"
+                    android:text="@{BigDecimalUtil.getValue(productObservable.product.price)}"
                     android:textColor="@color/DarkGrey"
                     android:textSize="12sp"
-                    android:visibility="@{product.hasSalePrice() ? View.VISIBLE : View.GONE}" />
+                    android:visibility="@{productObservable.product.hasSalePrice() ? View.VISIBLE : View.GONE}" />
 
             </LinearLayout>
 
@@ -139,7 +144,7 @@
                     android:id="@+id/quantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{StringUtil.getQuantityString(qty)}"
+                    android:text="@{StringUtil.getQuantityString(productObservable.quantity)}"
                     android:textColor="@color/Black"
                     android:textSize="12sp" />
 

@@ -5,6 +5,7 @@ import android.widget.ImageView;
 import androidx.databinding.BindingAdapter;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.tabiangifts.R;
 
@@ -16,7 +17,8 @@ public class GlideBindingAdapters {
                 .setDefaultRequestOptions(new RequestOptions()
                         .placeholder(R.drawable.ic_launcher_background)
                         .error(R.drawable.ic_launcher_background))
-                .load(imageResourceId).into(imageView);
+                .load(imageResourceId)
+                .into(imageView);
     }
 
     @BindingAdapter("imageSource")
@@ -25,6 +27,18 @@ public class GlideBindingAdapters {
                 .setDefaultRequestOptions(new RequestOptions()
                         .placeholder(R.drawable.ic_launcher_background)
                         .error(R.drawable.ic_launcher_background))
-                .load(imageUrl).into(imageView);
+                .load(imageUrl)
+                .into(imageView);
+    }
+
+    @BindingAdapter({"requestListener", "imageResource"})
+    public static void bindRequestListener(ImageView imageView, RequestListener requestListener, int imageResource) {
+        Glide.with(imageView.getContext())
+                .setDefaultRequestOptions(new RequestOptions()
+                        .placeholder(R.drawable.ic_launcher_background)
+                        .error(R.drawable.ic_launcher_background))
+                .load(imageResource)
+                .listener(requestListener)
+                .into(imageView);
     }
 }

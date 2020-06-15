@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.tabiangifts.R;
 import com.example.tabiangifts.databinding.FragmentViewProductBinding;
+import com.example.tabiangifts.databinding.ProductObservable;
 import com.example.tabiangifts.models.Product;
 
 public class ViewProductFragment extends Fragment {
@@ -36,8 +37,10 @@ public class ViewProductFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         mBinding = FragmentViewProductBinding.inflate(inflater);
 
-        mBinding.setProduct(mProduct);
-        mBinding.setQty(1);
+        ProductObservable productObservable = new ProductObservable();
+        productObservable.setProduct(mProduct);
+        productObservable.setQuantity(1);
+        mBinding.setProductObservable(productObservable);
 
         return mBinding.getRoot();
     }
