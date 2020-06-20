@@ -13,6 +13,10 @@
         <variable
             name="productObservable"
             type="com.example.tabiangifts.databinding.ProductObservable" />
+
+        <variable
+            name="iMainActivity"
+            type="com.example.tabiangifts.util.IMainActivity" />
     </data>
 
     <RelativeLayout
@@ -138,6 +142,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/grey_rounded_button"
+                android:onClick="@{() -> iMainActivity.showQuantityDialog()}"
                 android:padding="16dp">
 
                 <TextView
@@ -166,6 +171,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/orange_rounded_button"
+                android:onClick="@{() -> iMainActivity.addToCart(productObservable.product, productObservable.quantity)}"
                 android:padding="16dp">
 
                 <TextView
@@ -174,7 +180,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:text="Add to Cart"
+                    android:text="@string/add_to_cart"
                     android:textColor="@color/Black"
                     android:textSize="14sp" />
 

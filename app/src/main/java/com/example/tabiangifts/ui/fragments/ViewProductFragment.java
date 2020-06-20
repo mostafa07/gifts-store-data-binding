@@ -13,12 +13,13 @@ import com.example.tabiangifts.R;
 import com.example.tabiangifts.databinding.FragmentViewProductBinding;
 import com.example.tabiangifts.databinding.ProductObservable;
 import com.example.tabiangifts.models.Product;
+import com.example.tabiangifts.util.IMainActivity;
 
 public class ViewProductFragment extends Fragment {
 
     private static final String LOG_TAG = ViewProductFragment.class.getSimpleName();
 
-    FragmentViewProductBinding mBinding;
+    public FragmentViewProductBinding mBinding;
 
     private Product mProduct;
 
@@ -36,6 +37,7 @@ public class ViewProductFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         mBinding = FragmentViewProductBinding.inflate(inflater);
+        mBinding.setIMainActivity((IMainActivity) requireActivity());
 
         ProductObservable productObservable = new ProductObservable();
         productObservable.setProduct(mProduct);
@@ -45,17 +47,3 @@ public class ViewProductFragment extends Fragment {
         return mBinding.getRoot();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

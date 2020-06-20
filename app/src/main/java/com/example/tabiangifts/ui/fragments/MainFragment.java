@@ -15,7 +15,6 @@ import com.example.tabiangifts.databinding.FragmentMainBinding;
 import com.example.tabiangifts.models.Product;
 import com.example.tabiangifts.ui.adapters.ProductsAdapter;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -52,20 +51,7 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     }
 
     void onItemsLoadComplete() {
+        (mBinding.recyclerView.getAdapter()).notifyDataSetChanged();
         mBinding.swipeRefreshLayout.setRefreshing(false);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

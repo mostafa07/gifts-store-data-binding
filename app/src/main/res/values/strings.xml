@@ -16,4 +16,5 @@
     <string name="dialog_quantity_title">Qty: </string>
     <string name="cart_subtotal">Cart subtotal</string>
     <string name="proceed_to_checkout">Proceed to Checkout</string>
+    <string name="add_to_cart">Add to Cart</string>
 </resources>
