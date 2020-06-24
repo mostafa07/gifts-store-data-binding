@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tabiangifts.models.Product;
+import com.example.tabiangifts.ui.adapters.CartItemAdapter;
 import com.example.tabiangifts.ui.adapters.ProductsAdapter;
 
 import java.util.List;

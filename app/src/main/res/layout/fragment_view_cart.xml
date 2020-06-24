@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
+        <import type="java.util.List" />
 
         <variable
             name="iMainActivity"
             type="com.example.tabiangifts.util.IMainActivity" />
+
+        <variable
+            name="cartObservable"
+            type="com.example.tabiangifts.databinding.CartObservable" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/White" />
+        android:background="@color/White">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:cartItems="@{cartObservable.cartItems}" />
+    </RelativeLayout>
 </layout>

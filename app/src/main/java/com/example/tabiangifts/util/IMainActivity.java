@@ -1,5 +1,6 @@
 package com.example.tabiangifts.util;
 
+import com.example.tabiangifts.models.CartItem;
 import com.example.tabiangifts.models.Product;
 
 public interface IMainActivity {
@@ -11,4 +12,12 @@ public interface IMainActivity {
     void setQuantity(int quantity);
 
     void addToCart(Product product, int quantity);
+
+    void inflateViewCartFragment();
+
+    void setCartVisibility(boolean visibility);
+
+    void updateQuantity(Product product, int quantity);
+
+    void removeCartItem(CartItem cartItem);
 }

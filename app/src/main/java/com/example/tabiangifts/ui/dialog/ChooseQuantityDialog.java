@@ -24,7 +24,7 @@ public class ChooseQuantityDialog extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = DialogChooseQuantityBinding.inflate(inflater);
-        mBinding.setIMainActivity((IMainActivity) getActivity());
+        mBinding.setIMainActivity((IMainActivity) requireActivity());
         mBinding.listView.setOnItemClickListener(mOnItemClickListener);
         mBinding.closeDialog.setOnClickListener(mCloseDialogListener);
 
@@ -33,9 +33,10 @@ public class ChooseQuantityDialog extends DialogFragment {
 
     public AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() {
         @Override
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            Log.d(LOG_TAG, "onItemSelected: selected: " + adapterView.getItemAtPosition(i));
-            mBinding.getIMainActivity().setQuantity(Integer.parseInt((String) adapterView.getItemAtPosition(i)));
+        public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+            Log.d(LOG_TAG, "onItemSelected: selected: " + adapterView.getItemAtPosition(position));
+
+            mBinding.getIMainActivity().setQuantity(Integer.parseInt((String) adapterView.getItemAtPosition(position)));
             getDialog().dismiss();
         }
     };
